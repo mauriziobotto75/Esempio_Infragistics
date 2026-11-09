@@ -1,0 +1,308 @@
+<div class="column-layout layout-ordini-root">
+  <div class="row-layout row-layout_1">
+    <div class="column-layout column-layout_1">
+      <div class="column-layout barra-filtri-e-avanzamento">
+        <div class="row-layout row-layout_2">
+          <div class="column-layout column-layout_2">
+            <h3 class="content">
+              Gestione Ordini di Vendita e Spedizioni
+            </h3>
+            <p class="text">
+              Supervisione avanzamento evasione, emissione Documento di Trasporto (DDT) e fatturazione elettronica in ambiente Windows Forms Infragistics.
+            </p>
+          </div>
+          <div class="row-layout row-layout_3">
+            <button igxButton="contained" type="button" (click)="emissioneDocumentoDiTrasportoDDT.toggle()" class="genera-ddt">
+              <igx-icon class="icon">
+                local_shipping
+              </igx-icon>
+              <span>Genera DDT</span>
+            </button>
+            <button igxButton="outlined" type="button" (click)="snackbar.toggle()" class="emetti-fattura">
+              <igx-icon class="icon_1">
+                receipt_long
+              </igx-icon>
+              <span>Emetti Fattura</span>
+            </button>
+            <button igxButton="flat" type="button" (click)="snackbar.toggle()" class="esporta-excel">
+              <igx-icon class="icon_1">
+                table_view
+              </igx-icon>
+              <span>Esporta Excel</span>
+            </button>
+          </div>
+        </div>
+        <div class="row-layout row-layout_4">
+          <igx-input-group type="search" class="ricerca-ordine">
+            <igx-prefix>
+              <igx-icon class="icon_2">
+                search
+              </igx-icon>
+            </igx-prefix>
+            <input type="search" [(ngModel)]="value" placeholder="Cerca per numero ordine, Ragione Sociale cliente..." igxInput />
+            <label igxLabel>Ricerca Ordine</label>
+          </igx-input-group>
+          <div class="row-layout row-layout_5">
+            <igx-select type="border" placeholder="Tutti gli stati" class="stato-ordine">
+              <igx-select-item value="0">
+                Tutti gli stati
+              </igx-select-item>
+              <igx-select-item value="1">
+                In Lavorazione
+              </igx-select-item>
+              <igx-select-item value="2">
+                Confermato
+              </igx-select-item>
+              <igx-select-item value="3">
+                Evaso
+              </igx-select-item>
+              <igx-select-item value="4">
+                Fatturato
+              </igx-select-item>
+              <label igxLabel>Stato Ordine</label>
+            </igx-select>
+            <igx-select type="border" placeholder="Tutte le condizioni" class="condizioni-di-pagamento">
+              <igx-select-item value="0">
+                Tutte le condizioni
+              </igx-select-item>
+              <igx-select-item value="1">
+                Bonifico Bancario 30/60 gg
+              </igx-select-item>
+              <igx-select-item value="2">
+                Ri.Ba. 30 gg d.f.f.m.
+              </igx-select-item>
+              <igx-select-item value="3">
+                Rimessa Diretta a Vista
+              </igx-select-item>
+              <label igxLabel>Condizioni di Pagamento</label>
+            </igx-select>
+          </div>
+        </div>
+        <div class="row-layout row-layout_6">
+          <p class="ig-typography__caption content">
+            Filtri rapidi:
+          </p>
+          <igx-chip class="tutti-gli-ordini-4-8">
+            <igx-prefix>
+              <igx-icon class="icon_3">
+                filter_list
+              </igx-icon>
+            </igx-prefix>
+            Tutti gli Ordini (48)
+          </igx-chip>
+          <igx-chip class="tutti-gli-ordini-4-8">
+            <igx-prefix>
+              <igx-icon class="icon_4">
+                pending_actions
+              </igx-icon>
+            </igx-prefix>
+            Da Evadere (14)
+          </igx-chip>
+          <igx-chip class="tutti-gli-ordini-4-8">
+            <igx-prefix>
+              <igx-icon class="icon_5">
+                local_shipping
+              </igx-icon>
+            </igx-prefix>
+            DDT da Spedire (8)
+          </igx-chip>
+          <igx-chip class="tutti-gli-ordini-4-8">
+            <igx-prefix>
+              <igx-icon class="icon_6">
+                money_off
+              </igx-icon>
+            </igx-prefix>
+            Non Fatturati (12)
+          </igx-chip>
+        </div>
+      </div>
+      <div class="column-layout registro-ordini-di-vendita">
+        <div class="row-layout row-layout_7">
+          <div class="column-layout column-layout_3">
+            <h5 class="content">
+              Registro Ordini Cliente (Griglia UltraGrid Desktop)
+            </h5>
+            <p class="ig-typography__body-2 text">
+              Visualizzazione multi-livello con raggruppamento per cliente, avanzamento spedizione e indicatore di fatturazione.
+            </p>
+          </div>
+          <div class="row-layout row-layout_8">
+            <igx-badge value="Totale Ordini: 16 Caricati" class="totale-ordini-1-6-caricati"></igx-badge>
+            <igx-badge type="success" value="Fatturato Mese: € 148.650" class="totale-ordini-1-6-caricati"></igx-badge>
+          </div>
+        </div>
+        <igx-grid [data]="salesOrderDatasourceSalesOrder" primaryKey="orderNumber" [allowFiltering]="true" filterMode="excelStyleFilter" width="100%" class="griglia-ordini-di-vendita">
+          <igx-column field="orderNumber" dataType="string" header="orderNumber" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="customerName" dataType="string" header="customerName" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="orderDate" dataType="date" header="orderDate" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="totalAmount" dataType="number" header="totalAmount" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="status" dataType="string" header="status" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="isBilled" dataType="boolean" header="isBilled" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+        </igx-grid>
+      </div>
+      <div class="column-layout barra-filtri-e-avanzamento">
+        <div class="column-layout column-layout_4">
+          <h5 class="content">
+            Evasione e Documento di Trasporto (DDT)
+          </h5>
+          <p class="ig-typography__body-2 text">
+            Impostazione dei parametri di spedizione dell'ordine selezionato prima della stampa del Documento di Trasporto e dell'aggiornamento a magazzino.
+          </p>
+        </div>
+        <div class="row-layout row-layout_9">
+          <div class="column-layout column-layout_5">
+            <p class="content">
+              Dati Spedizione Ordine Selezionato
+            </p>
+            <igx-input-group type="border" class="numero-documento-trasporto">
+              <igx-prefix>
+                <igx-icon class="icon_2">
+                  badge
+                </igx-icon>
+              </igx-prefix>
+              <input type="text" [(ngModel)]="transportDocumentNumber" placeholder="es. DDT-2025/0842" igxInput />
+              <label igxLabel>Numero Documento Trasporto</label>
+              <igx-hint>Identificativo univoco del documento di trasporto</igx-hint>
+            </igx-input-group>
+            <igx-date-picker placeholder="Seleziona data prevista" [(ngModel)]="dispatchDate" type="border" class="data-spedizione">
+              <label igxLabel>Data Spedizione</label>
+              <igx-hint>Data programmata per il ritiro del vettore</igx-hint>
+            </igx-date-picker>
+            <igx-select type="border" placeholder="Seleziona causale" class="causale-di-trasporto">
+              <igx-select-item value="1">
+                Vendita Merci
+              </igx-select-item>
+              <igx-select-item value="2">
+                Conto Visione
+              </igx-select-item>
+              <igx-select-item value="3">
+                Conto Lavorazione
+              </igx-select-item>
+              <igx-select-item value="4">
+                Reso per Riparazione
+              </igx-select-item>
+              <label igxLabel>Causale di Trasporto</label>
+            </igx-select>
+            <div class="row-layout row-layout_10">
+              <button igxButton="contained" type="button" (click)="snackbar.toggle()" class="genera-ddt">
+                <igx-icon class="icon">
+                  check_circle
+                </igx-icon>
+                <span>Conferma Dati Spedizione</span>
+              </button>
+              <button igxButton="flat" type="button" class="azzera-dati-spedizione">
+                <igx-icon class="icon_7">
+                  clear
+                </igx-icon>
+                <span>Azzera Dati Spedizione</span>
+              </button>
+            </div>
+          </div>
+          <div class="column-layout column-layout_5">
+            <igx-card class="riepilogo-documento-di-trasporto-ddt">
+              <igx-card-header>
+                <h3 igxCardHeaderTitle>
+                  Riepilogo Documento di Trasporto (DDT)
+                </h3>
+                <h5 igxCardHeaderSubtitle>
+                  Dettagli confermati per l'avanzamento spedizione
+                </h5>
+              </igx-card-header>
+              <igx-card-content>
+                <div class="column-layout column-layout_6">
+                  <div class="row-layout row-layout_11">
+                    <p class="ig-typography__body-2 text">
+                      Numero Documento Trasporto:
+                    </p>
+                    <p class="text_1">
+                      {{ transportDocumentNumber }}
+                    </p>
+                  </div>
+                  <div class="row-layout row-layout_11">
+                    <p class="ig-typography__body-2 text">
+                      Data Spedizione Prevista:
+                    </p>
+                    <p class="text_1">
+                      {{ dispatchDate }}
+                    </p>
+                  </div>
+                  <div class="row-layout row-layout_11">
+                    <p class="ig-typography__body-2 text">
+                      Stato Avanzamento DDT:
+                    </p>
+                    <igx-badge type="info" value="Pronto per Evasione" class="totale-ordini-1-6-caricati"></igx-badge>
+                  </div>
+                </div>
+              </igx-card-content>
+              <igx-card-actions>
+                <ng-container igxStart></ng-container>
+                <ng-container igxEnd></ng-container>
+              </igx-card-actions>
+            </igx-card>
+            <img src="/assets/modern-logistics-dispatch-dock-e4474888800a.png" alt="" class="image" />
+          </div>
+        </div>
+      </div>
+      <igx-dialog [closeOnOutsideSelect]="true" #emissioneDocumentoDiTrasportoDDT class="emissione-documento-di-trasporto-ddt">
+        <igx-dialog-title>
+          Emissione Documento di Trasporto (DDT)
+        </igx-dialog-title>
+        <ng-container>
+          <div class="column-layout column-layout_7">
+            <p class="ig-typography__body-2 text">
+              Specificare i riferimenti logistici del carico per completare l'emissione del DDT e notificare il vettore incaricato.
+            </p>
+            <igx-select type="border" placeholder="Seleziona vettore" class="causale-di-trasporto">
+              <igx-select-item value="1">
+                BRT Corriere Espresso
+              </igx-select-item>
+              <igx-select-item value="2">
+                DHL Supply Chain
+              </igx-select-item>
+              <igx-select-item value="3">
+                GLS Logistics
+              </igx-select-item>
+              <igx-select-item value="4">
+                Ritiro Diretto a Cura Cliente
+              </igx-select-item>
+              <label igxLabel>Vettore di Trasporto Incaricato</label>
+            </igx-select>
+            <div class="row-layout row-layout_12">
+              <igx-input-group type="border" class="numero-colli">
+                <input type="number" [ngModel]="value1" placeholder="es. 4" igxInput (ngModelChange)="value1 = stringToNumber($event)" />
+                <label igxLabel>Numero Colli</label>
+              </igx-input-group>
+              <igx-input-group type="border" class="numero-colli">
+                <input type="number" [ngModel]="value2" placeholder="es. 128.50" igxInput (ngModelChange)="value2 = stringToNumber($event)" />
+                <label igxLabel>Peso Totale (Kg)</label>
+              </igx-input-group>
+            </div>
+            <igx-select type="border" placeholder="Seleziona porto" class="causale-di-trasporto">
+              <igx-select-item value="1">
+                Porto Franco con Addebito
+              </igx-select-item>
+              <igx-select-item value="2">
+                Porto Assegnato
+              </igx-select-item>
+              <label igxLabel>Condizioni di Resa (Porto)</label>
+            </igx-select>
+          </div>
+        </ng-container>
+        <igx-dialog-actions>
+          <button igxButton="flat" type="button" (click)="emissioneDocumentoDiTrasportoDDT.toggle()" class="annulla">
+            Annulla
+          </button>
+          <button igxButton="contained" type="button" (click)="emissioneDocumentoDiTrasportoDDT.toggle()" class="genera-e-stampa-ddt">
+            <igx-icon class="icon">
+              print
+            </igx-icon>
+            <span>Genera e Stampa DDT</span>
+          </button>
+        </igx-dialog-actions>
+      </igx-dialog>
+      <igx-snackbar actionText="OK" (clicked)="snackbar.toggle()" #snackbar class="snackbar">
+        Fattura elettronica emessa per l'ordine selezionato.
+      </igx-snackbar>
+    </div>
+  </div>
+</div>

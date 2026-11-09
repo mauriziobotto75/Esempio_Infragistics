@@ -1,0 +1,66 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 0;
+}
+.nav-bar-main {
+  --igx-navbar-text-color: var(--ig-primary-700-contrast);
+  --igx-navbar-background: var(--ig-primary-700);
+  height: max-content;
+  min-width: min-content;
+}
+.nav-drawer-main {
+  --background: var(--ig-surface-100);
+  --item-hover-background: var(--igx-nav-drawer-item-hover-background, var(--ig-nav-drawer-item-hover-background, lch(from var(--background) calc(l + (50 - l) * 0.1 + sign(50 - l) * 5) c h)));
+  --item-active-background: var(--igx-nav-drawer-item-active-background, var(--ig-nav-drawer-item-active-background, lch(from var(--background) calc(l + (50 - l) * 0.1 + sign(50 - l) * 10) c h)));
+  --item-disabled-text-color: var(--igx-nav-drawer-item-disabled-text-color, var(--ig-nav-drawer-item-disabled-text-color, hsl(from hsla(from color(from var(--background) var(--y-contrast)) h 0 l/1) h s l/0.38)));
+  --item-disabled-icon-color: var(--igx-nav-drawer-item-disabled-icon-color, var(--ig-nav-drawer-item-disabled-icon-color, hsl(from hsla(from color(from var(--background) var(--y-contrast)) h 0 l/1) h s l/0.38)));
+  --item-hover-icon-color: var(--igx-nav-drawer-item-hover-icon-color, var(--ig-nav-drawer-item-hover-icon-color, hsla(from color(from var(--background) var(--y-contrast)) h 0 l/1)));
+  --item-hover-text-color: var(--igx-nav-drawer-item-hover-text-color, var(--ig-nav-drawer-item-hover-text-color, hsla(from color(from var(--background) var(--y-contrast)) h 0 l/1)));
+  --item-text-color: var(--igx-nav-drawer-item-text-color, var(--ig-nav-drawer-item-text-color, hsla(from color(from var(--background) var(--y-contrast)) h 0 l/1)));
+  --item-active-icon-color: var(--igx-nav-drawer-item-active-icon-color, var(--ig-nav-drawer-item-active-icon-color, hsla(from color(from var(--item-active-background) var(--y-contrast)) h 0 l/1)));
+  --item-active-text-color: var(--igx-nav-drawer-item-active-text-color, var(--ig-nav-drawer-item-active-text-color, hsla(from color(from var(--item-active-background) var(--y-contrast)) h 0 l/1)));
+  --item-icon-color: var(--igx-nav-drawer-item-icon-color, var(--ig-nav-drawer-item-icon-color, hsla(from color(from var(--background) var(--y-contrast)) h 0 l/1)));
+  --item-header-text-color: var(--igx-nav-drawer-item-header-text-color, var(--ig-nav-drawer-item-header-text-color, hsla(from color(from var(--background) var(--y-contrast)) h 0 l/1)));
+  min-width: min-content;
+  min-height: 0;
+  max-width: 260px;
+  flex-shrink: 0;
+}
+.view-container-main {
+  overflow: auto;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  flex-grow: 1;
+}
+.navbar-content {
+  gap: 1rem;
+}
+.btn-toggle-drawer {
+  --foreground: var(--ig-primary-700-contrast);
+}
+.icon {
+  color: var(--ig-primary-700-contrast);
+}
+.h6 {
+  margin: 0;
+}
+.row-layout {
+  display: flex;
+}
+.row-shell-body {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 0;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-shrink: 0;
+}

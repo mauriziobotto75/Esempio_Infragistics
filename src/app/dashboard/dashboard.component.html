@@ -1,0 +1,377 @@
+<div class="column-layout layout-dashboard-root">
+  <div class="row-layout page-frame-row">
+    <div class="column-layout dashboard-container">
+      <div class="column-layout header-panoramica-gestionale">
+        <div class="row-layout header-top-bar">
+          <div class="column-layout header-identity-block">
+            <div class="row-layout header-title-row">
+              <igx-avatar shape="rounded" class="header-app-avatar header-app-avatar_1">
+                <igx-icon class="icon">
+                  desktop_windows
+                </igx-icon>
+              </igx-avatar>
+              <h3 class="content">
+                Cruscotto Direzionale Windows Forms
+              </h3>
+            </div>
+            <p class="descrizione-pagina">
+              Monitoraggio centrale delle performance aziendali: controllo Fatturato, affidamento Fido Cliente, scadenze DDT e stato di Giacenza.
+            </p>
+          </div>
+          <div class="row-layout header-actions-row">
+            <button igxButton="contained" type="button" (click)="snackbarNotificaEsportazione.toggle()" class="pulsante-esporta-excel">
+              <igx-icon class="icon_1">
+                file_download
+              </igx-icon>
+              <span>Esporta Riepilogo Excel</span>
+            </button>
+            <button igxButton="outlined" type="button" (click)="dialogConfiguraSoglie.toggle()" class="pulsante-configura-soglie">
+              <igx-icon class="icon_2">
+                tune
+              </igx-icon>
+              <span>Configura Soglie Avvisi</span>
+            </button>
+            <button igxButton="flat" type="button" (click)="snackbarNotificaEsportazione.toggle()" class="pulsante-ricarica-dati">
+              <igx-icon class="icon_2">
+                refresh
+              </igx-icon>
+              <span>Aggiorna</span>
+            </button>
+          </div>
+        </div>
+        <div class="row-layout header-status-row">
+          <igx-chip class="chip-status-ultra-grid">
+            <igx-prefix>
+              <igx-icon class="icon_3">
+                verified
+              </igx-icon>
+            </igx-prefix>
+            Infragistics UltraGrid Engine: Connesso
+          </igx-chip>
+          <igx-chip class="chip-status-ultra-grid">
+            <igx-prefix>
+              <igx-icon class="icon_4">
+                dns
+              </igx-icon>
+            </igx-prefix>
+            Ambiente Gestionale: Produzione ERP
+          </igx-chip>
+          <igx-chip class="chip-status-ultra-grid">
+            <igx-prefix>
+              <igx-icon class="icon_5">
+                sync
+              </igx-icon>
+            </igx-prefix>
+            Allineamento DDT &amp; Ordini: In Tempo Reale
+          </igx-chip>
+        </div>
+        <img src="/assets/corporate-enterprise-erp-manag-9096692eb986.png" alt="" class="dashboard-hero-image" />
+      </div>
+      <div class="column-layout kpi-panoramica-gestionale">
+        <div class="column-layout kpi-header-block">
+          <h5 class="content">
+            Indicatori Operativi e Finanziari
+          </h5>
+          <p class="ig-typography__body-2 descrizione-pagina">
+            Stato degli obiettivi mensili di fatturato, esposizione fido commerciale, avanzamento spedizioni e disponibilità scorte.
+          </p>
+        </div>
+        <div class="row-layout kpi-cards-row">
+          <igx-card class="card-kpi-fatturato">
+            <igx-card-content>
+              <div class="column-layout contenuto-kpi-fatturato">
+                <div class="row-layout riga-top-kpi-1">
+                  <p class="ig-typography__overline descrizione-pagina">
+                    FATTURATO MENSILE CONSOLIDATO
+                  </p>
+                  <igx-avatar shape="rounded" class="avatar-kpi-1 avatar-kpi-1_1">
+                    <igx-icon class="icon">
+                      payments
+                    </igx-icon>
+                  </igx-avatar>
+                </div>
+                <h4 class="content">
+                  € 485.250,00
+                </h4>
+                <div class="row-layout trend-kpi-1">
+                  <igx-icon class="icon_3">
+                    trending_up
+                  </igx-icon>
+                  <p class="ig-typography__caption scostamento-kpi-1">
+                    +14.8%
+                  </p>
+                  <p class="ig-typography__caption content">
+                    vs target concordato (€ 420.000)
+                  </p>
+                </div>
+                <div class="row-layout meta-kpi-1">
+                  <igx-badge type="success" value="Avanzamento 115%" class="badge-kpi-1"></igx-badge>
+                  <p class="ig-typography__caption nota-kpi-1">
+                    Listino Prezzi Base
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+            <igx-card-actions>
+              <ng-container igxStart></ng-container>
+              <ng-container igxEnd></ng-container>
+            </igx-card-actions>
+          </igx-card>
+          <igx-card class="card-kpi-fatturato">
+            <igx-card-content>
+              <div class="column-layout contenuto-kpi-fatturato">
+                <div class="row-layout riga-top-kpi-1">
+                  <p class="ig-typography__overline descrizione-pagina">
+                    FIDO CLIENTE COMPLESSIVO
+                  </p>
+                  <igx-avatar shape="rounded" class="avatar-kpi-2 avatar-kpi-2_1">
+                    <igx-icon class="icon_6">
+                      account_balance
+                    </igx-icon>
+                  </igx-avatar>
+                </div>
+                <h4 class="content">
+                  € 1.280.000,00
+                </h4>
+                <div class="row-layout trend-kpi-1">
+                  <igx-icon class="icon_5">
+                    check_circle
+                  </igx-icon>
+                  <p class="ig-typography__caption scostamento-kpi-2">
+                    74% Impegnato
+                  </p>
+                  <p class="ig-typography__caption content">
+                    su 142 anagrafiche attive
+                  </p>
+                </div>
+                <div class="row-layout meta-kpi-1">
+                  <igx-badge type="info" value="Esposizione Regolare" class="badge-kpi-1"></igx-badge>
+                  <p class="ig-typography__caption nota-kpi-1">
+                    Condizioni: 60gg dffm
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+            <igx-card-actions>
+              <ng-container igxStart></ng-container>
+              <ng-container igxEnd></ng-container>
+            </igx-card-actions>
+          </igx-card>
+          <igx-card class="card-kpi-fatturato">
+            <igx-card-content>
+              <div class="column-layout contenuto-kpi-fatturato">
+                <div class="row-layout riga-top-kpi-1">
+                  <p class="ig-typography__overline descrizione-pagina">
+                    STATO ORDINI &amp; DDT EMESSI
+                  </p>
+                  <igx-avatar shape="rounded" class="avatar-kpi-1 avatar-kpi-1_2">
+                    <igx-icon class="icon">
+                      local_shipping
+                    </igx-icon>
+                  </igx-avatar>
+                </div>
+                <h4 class="content">
+                  142 Ordini Aperti
+                </h4>
+                <div class="row-layout trend-kpi-1">
+                  <igx-icon class="icon_4">
+                    schedule
+                  </igx-icon>
+                  <p class="ig-typography__caption scostamento-kpi-3">
+                    96 DDT Inviati
+                  </p>
+                  <p class="ig-typography__caption content">
+                    in consegna al vettore
+                  </p>
+                </div>
+                <div class="row-layout meta-kpi-1">
+                  <igx-badge value="Evasione al 92%" class="badge-kpi-1"></igx-badge>
+                  <p class="ig-typography__caption nota-kpi-1">
+                    4 in attesa approvazione
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+            <igx-card-actions>
+              <ng-container igxStart></ng-container>
+              <ng-container igxEnd></ng-container>
+            </igx-card-actions>
+          </igx-card>
+          <igx-card class="card-kpi-fatturato">
+            <igx-card-content>
+              <div class="column-layout contenuto-kpi-fatturato">
+                <div class="row-layout riga-top-kpi-1">
+                  <p class="ig-typography__overline descrizione-pagina">
+                    GIACENZA &amp; SCORTA MINIMA
+                  </p>
+                  <igx-avatar shape="rounded" class="avatar-kpi-4 avatar-kpi-4_1">
+                    <igx-icon class="icon_7">
+                      warning
+                    </igx-icon>
+                  </igx-avatar>
+                </div>
+                <h4 class="content">
+                  18 Articoli Critici
+                </h4>
+                <div class="row-layout trend-kpi-1">
+                  <igx-icon class="icona-trend-kpi-4">
+                    trending_down
+                  </igx-icon>
+                  <p class="ig-typography__caption scostamento-kpi-4">
+                    Sotto Scorta Minima
+                  </p>
+                  <p class="ig-typography__caption content">
+                    richiesto riordino urgente
+                  </p>
+                </div>
+                <div class="row-layout meta-kpi-1">
+                  <igx-badge type="warning" value="Allerta Magazzino" class="badge-kpi-1"></igx-badge>
+                  <p class="ig-typography__caption nota-kpi-1">
+                    Fabbisogno: € 28.400
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+            <igx-card-actions>
+              <ng-container igxStart></ng-container>
+              <ng-container igxEnd></ng-container>
+            </igx-card-actions>
+          </igx-card>
+        </div>
+      </div>
+      <div class="column-layout header-panoramica-gestionale">
+        <div class="row-layout sales-header-row">
+          <div class="column-layout sales-title-col">
+            <h5 class="content">
+              Andamento Vendite vs Obiettivi Commerciali
+            </h5>
+            <p class="ig-typography__body-2 descrizione-pagina">
+              Confronto analitico tra il fatturato realizzato consolidato e il target di budget assegnato per canale distributivo.
+            </p>
+          </div>
+          <igx-buttongroup class="filtro-periodo-vendite">
+            <button igxButton (click)="snackbarNotificaEsportazione.toggle()">
+              Mese Corrente
+            </button>
+            <button igxButton (click)="snackbarNotificaEsportazione.toggle()">
+              Trimestre Q3
+            </button>
+            <button igxButton (click)="snackbarNotificaEsportazione.toggle()">
+              Anno 2025
+            </button>
+          </igx-buttongroup>
+        </div>
+        <apx-chart [series]="series" [colors]="colors" [chart]="chart" [plotOptions]="plotOptions" [title]="title" [xaxis]="xaxis" [yaxis]="yaxis" [theme]="theme" [legend]="legend" [markers]="markers" [dataLabels]="dataLabels" class="grafico-andamento-kpi"></apx-chart>
+      </div>
+      <div class="column-layout kpi-panoramica-gestionale">
+        <div class="row-layout sales-header-row">
+          <div class="column-layout sales-title-col">
+            <h5 class="content">
+              Registro Diagnostico e Attività Operative (UltraGrid)
+            </h5>
+            <p class="ig-typography__body-2 descrizione-pagina">
+              Tracciamento in tempo reale degli eventi di sistema, disallineamenti di magazzino, variazioni anagrafiche e Documenti di Trasporto.
+            </p>
+          </div>
+          <div class="row-layout activity-chips-row">
+            <igx-chip class="chip-status-ultra-grid">
+              <igx-prefix>
+                <igx-icon class="icon_8">
+                  place
+                </igx-icon>
+              </igx-prefix>
+              Tutti gli Eventi (180)
+            </igx-chip>
+            <igx-chip class="chip-status-ultra-grid">
+              <igx-prefix>
+                <igx-icon class="icon_9">
+                  error_outline
+                </igx-icon>
+              </igx-prefix>
+              Solo Avvisi Critici (12)
+            </igx-chip>
+            <igx-chip class="chip-status-ultra-grid">
+              <igx-prefix>
+                <igx-icon class="icon_8">
+                  place
+                </igx-icon>
+              </igx-prefix>
+              Movimenti DDT (64)
+            </igx-chip>
+            <igx-chip class="chip-status-ultra-grid">
+              <igx-prefix>
+                <igx-icon class="icon_8">
+                  place
+                </igx-icon>
+              </igx-prefix>
+              Controlli Fido (18)
+            </igx-chip>
+          </div>
+        </div>
+        <igc-grid-lite [data]="recentActivityDatasourceRecentActivity" class="griglia-attivita-recenti">
+          <igc-grid-lite-column field="id" dataType="number" header="id" [filterable]="true" [sortable]="true" [resizable]="true"></igc-grid-lite-column>
+          <igc-grid-lite-column field="description" dataType="string" header="description" [filterable]="true" [sortable]="true" [resizable]="true"></igc-grid-lite-column>
+          <igc-grid-lite-column field="userCode" dataType="string" header="userCode" [filterable]="true" [sortable]="true" [resizable]="true"></igc-grid-lite-column>
+          <igc-grid-lite-column field="timestamp" dataType="string" header="timestamp" [filterable]="true" [sortable]="true" [resizable]="true"></igc-grid-lite-column>
+          <igc-grid-lite-column field="isAlert" dataType="boolean" header="isAlert" [filterable]="true" [sortable]="true" [resizable]="true"></igc-grid-lite-column>
+        </igc-grid-lite>
+      </div>
+      <igx-dialog [closeOnOutsideSelect]="true" #dialogConfiguraSoglie class="dialog-configura-soglie">
+        <igx-dialog-title>
+          Configurazione Parametri e Soglie di Allerta
+        </igx-dialog-title>
+        <ng-container>
+          <div class="column-layout dialog-content-layout">
+            <p class="ig-typography__body-2 descrizione-dialog">
+              Impostare i parametri operativi per la segnalazione automatica di disallineamenti di magazzino, scostamento target di fatturato e superamento fido commerciale cliente.
+            </p>
+            <igx-input-group type="border" class="input-soglia-giacenza">
+              <input type="number" [ngModel]="value" igxInput (ngModelChange)="value = stringToNumber($event)" />
+              <label igxLabel>Soglia Minima Giacenza Articoli (%)</label>
+            </igx-input-group>
+            <igx-input-group type="border" class="input-soglia-giacenza">
+              <input type="number" [ngModel]="value1" igxInput (ngModelChange)="value1 = stringToNumber($event)" />
+              <label igxLabel>Tolleranza Massima Fido Cliente (€)</label>
+            </igx-input-group>
+            <igx-input-group type="border" class="input-soglia-giacenza">
+              <input type="number" [ngModel]="value2" igxInput (ngModelChange)="value2 = stringToNumber($event)" />
+              <label igxLabel>Scostamento Obiettivo Fatturato (%)</label>
+            </igx-input-group>
+            <igx-select type="border" [(ngModel)]="value3" class="select-frequenza-alert">
+              <igx-select-item value="1">
+                Continuo in Tempo Reale (Push)
+              </igx-select-item>
+              <igx-select-item value="2">
+                Orario (Batch UltraGrid)
+              </igx-select-item>
+              <igx-select-item value="3">
+                Consolidamento Giornaliero (EOD)
+              </igx-select-item>
+              <label igxLabel>Intervallo di Ricalcolo Notifiche</label>
+            </igx-select>
+            <igx-switch [(ngModel)]="checked" class="switch-blocco-ddt">
+              Blocca emissione Documento di Trasporto su fido superato
+            </igx-switch>
+            <igx-switch [(ngModel)]="checked1" class="switch-blocco-ddt">
+              Notifica immediata sottoscorta al responsabile logistica
+            </igx-switch>
+          </div>
+        </ng-container>
+        <igx-dialog-actions>
+          <button igxButton="flat" type="button" (click)="dialogConfiguraSoglie.toggle()" class="pulsante-dialog-annulla">
+            Annulla
+          </button>
+          <button igxButton="contained" type="button" (click)="dialogConfiguraSoglie.toggle()" class="pulsante-dialog-conferma">
+            <igx-icon class="icon_1">
+              check
+            </igx-icon>
+            <span>Salva Impostazioni</span>
+          </button>
+        </igx-dialog-actions>
+      </igx-dialog>
+      <igx-snackbar actionText="OK" (clicked)="snackbarNotificaEsportazione.toggle()" #snackbarNotificaEsportazione class="snackbar-notifica-esportazione">
+        Esportazione cartella di lavoro completata con successo.
+      </igx-snackbar>
+    </div>
+  </div>
+</div>

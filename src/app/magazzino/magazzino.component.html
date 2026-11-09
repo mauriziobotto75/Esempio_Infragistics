@@ -1,0 +1,374 @@
+<div class="column-layout layout-magazzino-root">
+  <div class="row-layout row-magazzino-frame-root">
+    <div class="column-layout col-magazzino-container">
+      <div class="column-layout sec-barra-movimentazione">
+        <div class="row-layout row-header-actions">
+          <div class="column-layout col-header-text">
+            <div class="row-layout row-title-badge">
+              <h3 class="content">
+                Gestione Magazzino e Giacenze
+              </h3>
+              <igx-badge value="UltraGrid Live" class="badge-tipo-griglia"></igx-badge>
+              <igx-badge type="warning" value="14 Articoli Sottoscorta" class="badge-tipo-griglia"></igx-badge>
+            </div>
+            <p class="descrizione-pagina-magazzino">
+              Monitoraggio disponibilità merci, soglie critiche di scorta minima, carichi a scaffale ed esportazione UltraGrid.
+            </p>
+          </div>
+          <div class="row-layout row-pulsanti-operativi">
+            <button igxButton="contained" type="button" (click)="dialogCaricoMerci.toggle()" class="btn-carico-merci">
+              <igx-icon class="icon">
+                add_box
+              </igx-icon>
+              <span>Carico Merci</span>
+            </button>
+            <button igxButton="outlined" type="button" (click)="dialogCaricoMerci.toggle()" class="btn-rettifica-giacenza">
+              <igx-icon class="icon_1">
+                edit_note
+              </igx-icon>
+              <span>Rettifica Giacenza</span>
+            </button>
+            <button igxButton="outlined" type="button" (click)="snackbarRiordinoEffettuato.toggle()" class="btn-rettifica-giacenza">
+              <igx-icon class="icon_1">
+                table_view
+              </igx-icon>
+              <span>Esporta Excel</span>
+            </button>
+            <button igxButton="flat" type="button" (click)="snackbarRiordinoEffettuato.toggle()" class="btn-stampa-etichette">
+              <igx-icon class="icon_1">
+                print
+              </igx-icon>
+              <span>Stampa DDT</span>
+            </button>
+          </div>
+        </div>
+        <div class="row-layout row-filtri-ricerca">
+          <igx-input-group type="search" class="input-ricerca-articolo">
+            <igx-prefix>
+              <igx-icon class="icon-search-prefix">
+                search
+              </igx-icon>
+            </igx-prefix>
+            <input type="search" [(ngModel)]="value" placeholder="Es. ART-8012, Cuscinetto, Valvola..." igxInput />
+            <label igxLabel>Ricerca Articolo o Codice</label>
+          </igx-input-group>
+          <div class="row-layout row-select-filtri">
+            <igx-select type="border" placeholder="Tutte le scorte" class="select-stato-giacenza">
+              <igx-select-item value="1">
+                Tutti gli Articoli
+              </igx-select-item>
+              <igx-select-item value="2">
+                Sottoscorta Critica
+              </igx-select-item>
+              <igx-select-item value="3">
+                Scorta di Sicurezza
+              </igx-select-item>
+              <igx-select-item value="4">
+                Giacenza Regolare
+              </igx-select-item>
+              <label igxLabel>Stato Giacenza</label>
+            </igx-select>
+            <igx-select type="border" placeholder="Tutte le corsie" class="select-stato-giacenza">
+              <igx-select-item value="1">
+                Tutte le Corsie
+              </igx-select-item>
+              <igx-select-item value="2">
+                Corsia A - Minuterie
+              </igx-select-item>
+              <igx-select-item value="3">
+                Corsia B - Semilavorati
+              </igx-select-item>
+              <igx-select-item value="4">
+                Corsia C - Prodotti Finiti
+              </igx-select-item>
+              <label igxLabel>Corsia / Ubicazione</label>
+            </igx-select>
+            <button igxButton="flat" type="button" (click)="snackbarRiordinoEffettuato.toggle()" class="btn-reimposta-filtri">
+              <igx-icon class="icon_2">
+                refresh
+              </igx-icon>
+              <span>Reimposta</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="column-layout sec-griglia-giacenze">
+        <div class="row-layout row-filtri-ricerca">
+          <div class="column-layout col-titolo-griglia-sub">
+            <h5 class="content">
+              Registro Giacenze Articoli (UltraGrid)
+            </h5>
+            <p class="ig-typography__body-2 descrizione-pagina-magazzino">
+              Visualizzazione multi-livello con raggruppamento a colonne, tracciamento scorta minima e data ultimo carico.
+            </p>
+          </div>
+          <div class="row-layout row-indicatori-rapidi">
+            <igx-chip class="chip-totale-articoli">
+              <igx-prefix>
+                <igx-icon class="icon-chip-box">
+                  inventory_2
+                </igx-icon>
+              </igx-prefix>
+              1.240 Articoli a Catalogo
+            </igx-chip>
+            <igx-chip class="chip-totale-articoli">
+              <igx-prefix>
+                <igx-icon class="icon-chip-val">
+                  euro
+                </igx-icon>
+              </igx-prefix>
+              Valore Scorte: € 482.350
+            </igx-chip>
+          </div>
+        </div>
+        <igx-grid [data]="inventoryItemInventoryItem" primaryKey="itemCode" [allowFiltering]="true" filterMode="excelStyleFilter" width="100%" class="grid-giacenze-articoli">
+          <igx-column field="itemCode" dataType="string" header="itemCode" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="description" dataType="string" header="description" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="stockQuantity" dataType="number" header="stockQuantity" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="minimumThreshold" dataType="number" header="minimumThreshold" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="unitPrice" dataType="number" header="unitPrice" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="lastMovementDate" dataType="date" header="lastMovementDate" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+        </igx-grid>
+      </div>
+      <div class="column-layout sec-barra-movimentazione">
+        <div class="column-layout col-header-riordino">
+          <h5 class="content">
+            Pannello Riordino Fornitori e Reintegro Scorte
+          </h5>
+          <p class="ig-typography__body-2 descrizione-pagina-magazzino">
+            Predisposizione della proposta d'ordine fornitore per il reintegro dei codici al di sotto della soglia di scorta minima.
+          </p>
+        </div>
+        <div class="row-layout row-contenuto-riordino-split">
+          <div class="column-layout col-form-riordino">
+            <img src="/assets/organized-warehouse-storage-ra-1bb0d79d4487.png" alt="" class="img-warehouse-handling" />
+            <div class="row-layout row-selezione-codice-fornitore">
+              <igx-select type="border" placeholder="Seleziona articolo critico" class="select-articolo-reintegro">
+                <igx-select-item value="1">
+                  ART-1048 - Valvola Idraulica 3/4"
+                </igx-select-item>
+                <igx-select-item value="2">
+                  ART-2290 - Guarnizione EPDM DN50
+                </igx-select-item>
+                <igx-select-item value="3">
+                  ART-3401 - Raccordo Ottone 1/2"
+                </igx-select-item>
+                <igx-select-item value="4">
+                  ART-5120 - Sensore di Pressione Bar
+                </igx-select-item>
+                <label igxLabel>Codice Articolo da Reintegrare</label>
+              </igx-select>
+              <igx-select type="border" placeholder="Seleziona fornitore accreditato" class="select-articolo-reintegro">
+                <igx-select-item value="1">
+                  Meccanica Emiliana S.p.A. (P.IVA 01928370371)
+                </igx-select-item>
+                <igx-select-item value="2">
+                  Idroforniture Orobiche S.r.l. (P.IVA 02847190163)
+                </igx-select-item>
+                <igx-select-item value="3">
+                  Valvole &amp; Raccordi Italia S.p.A. (P.IVA 03918270124)
+                </igx-select-item>
+                <label igxLabel>Ragione Sociale Fornitore</label>
+              </igx-select>
+            </div>
+            <igx-input-group type="border" class="state-writer-magazzino-riordinomagazzino-quantitariordino">
+              <igx-prefix>
+                <igx-icon class="icon-search-prefix">
+                  production_quantity_limits
+                </igx-icon>
+              </igx-prefix>
+              <input type="number" [ngModel]="reorderQuantity" placeholder="Es. 350" required="true" igxInput (ngModelChange)="reorderQuantity = stringToNumber($event)" #igxInput="igxInput" />
+              <label igxLabel>Quantità da Ordinare</label>
+              @if (!igxInput.isValid && igxInput.nativeElement.validity.valueMissing) {
+                <igx-hint>This field is required</igx-hint>
+              }
+            </igx-input-group>
+            <igx-input-group type="border" class="state-writer-magazzino-riordinomagazzino-notefornitore">
+              <label igxLabel>Note per il Fornitore</label>
+              <textarea placeholder="Inserire istruzioni sul Documento di Trasporto (DDT), imballo su pallet o data massima di consegna..." [(ngModel)]="supplierOrderNotes" igxInput></textarea>
+              <igx-hint>Istruzioni logistiche e di scarico merci trasmesse con l'ordine d'acquisto</igx-hint>
+            </igx-input-group>
+          </div>
+          <div class="column-layout col-form-riordino">
+            <igx-card class="card-riepilogo-proposta">
+              <igx-card-header>
+                <div igxCardThumbnail>
+                  <igx-avatar shape="rounded" class="avatar-card-fornitore">
+                    <igx-icon class="icon_3">
+                      local_shipping
+                    </igx-icon>
+                  </igx-avatar>
+                </div>
+                <h3 igxCardHeaderTitle>
+                  Riepilogo Proposta di Riordino
+                </h3>
+                <h5 igxCardHeaderSubtitle>
+                  Reintegro giacenza sottoscorta
+                </h5>
+              </igx-card-header>
+              <igx-card-content>
+                <div class="column-layout col-card-content-riordino">
+                  <div class="row-layout row-stato-proposta">
+                    <p class="ig-typography__overline content">
+                      Stato Avanzamento
+                    </p>
+                    <igx-badge type="info" value="Bozza Reintegro" class="badge-tipo-griglia"></igx-badge>
+                  </div>
+                  <div class="column-layout col-header-riordino">
+                    <p class="ig-typography__caption content">
+                      Quantità Reintegro da Ordinare (Pezzi):
+                    </p>
+                    <div class="row-layout row-quantita-highlight">
+                      <p class="txt-valore-quantita-riordino">
+                        {{ reorderQuantity }}
+                      </p>
+                      <p class="ig-typography__body-2 content">
+                        Pz. standard
+                      </p>
+                    </div>
+                  </div>
+                  <div class="column-layout col-header-riordino">
+                    <p class="ig-typography__caption content">
+                      Note e Prescrizioni di Consegna Fornitore:
+                    </p>
+                    <div class="column-layout box-note-output">
+                      <p class="ig-typography__body-2 txt-valore-note-fornitore">
+                        {{ supplierOrderNotes }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="column-layout col-condizioni-commerciali">
+                    <div class="row-layout row-condizione-pagamento">
+                      <p class="ig-typography__caption content">
+                        Condizioni di Pagamento:
+                      </p>
+                      <p class="ig-typography__body-2 txt-valore-note-fornitore">
+                        Bonifico 60 gg d.f. f.m.
+                      </p>
+                    </div>
+                    <div class="row-layout row-condizione-pagamento">
+                      <p class="ig-typography__caption content">
+                        Listino Prezzi &amp; Fido:
+                      </p>
+                      <p class="ig-typography__body-2 val-fido-fornitore">
+                        Fido Capiente - Sconto 15%
+                      </p>
+                    </div>
+                    <div class="row-layout row-condizione-pagamento">
+                      <p class="ig-typography__caption content">
+                        Destinazione DDT:
+                      </p>
+                      <p class="ig-typography__body-2 txt-valore-note-fornitore">
+                        Magazzino Centrale - Reparto C
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </igx-card-content>
+              <igx-card-actions>
+                <ng-container igxStart>
+                  <button igxButton="contained" type="button" (click)="snackbarRiordinoEffettuato.toggle()" class="btn-invia-riordino-fornitore">
+                    <igx-icon class="icon">
+                      send
+                    </igx-icon>
+                    <span>Invia Riordino Fornitore</span>
+                  </button>
+                  <button igxButton="outlined" type="button" class="state-action-magazzino-pannello-riordino-fornitori-annulla-proposta">
+                    <igx-icon class="icon_2">
+                      cancel
+                    </igx-icon>
+                    <span>Annulla Proposta</span>
+                  </button>
+                </ng-container>
+                <ng-container igxEnd></ng-container>
+              </igx-card-actions>
+            </igx-card>
+          </div>
+        </div>
+      </div>
+      <igx-dialog [closeOnOutsideSelect]="true" #dialogCaricoMerci class="dialog-carico-merci">
+        <igx-dialog-title>
+          Registrazione Carico Merci a Magazzino
+        </igx-dialog-title>
+        <ng-container>
+          <div class="column-layout col-card-content-riordino">
+            <p class="ig-typography__body-2 descrizione-pagina-magazzino">
+              Inserire i riferimenti del Documento di Trasporto (DDT) di arrivo e le coordinate di stoccaggio per incrementare la giacenza contabile.
+            </p>
+            <igx-input-group type="border" class="input-codice-articolo-dialog">
+              <igx-prefix>
+                <igx-icon class="icon-search-prefix">
+                  qr_code
+                </igx-icon>
+              </igx-prefix>
+              <input type="text" [(ngModel)]="value1" placeholder="Es. ART-8012" required="true" igxInput #igxInput1="igxInput" />
+              <label igxLabel>Codice Articolo</label>
+              @if (!igxInput1.isValid && igxInput1.nativeElement.validity.valueMissing) {
+                <igx-hint>This field is required</igx-hint>
+              }
+            </igx-input-group>
+            <igx-input-group type="border" class="input-codice-articolo-dialog">
+              <igx-prefix>
+                <igx-icon class="icon-search-prefix">
+                  add_shopping_cart
+                </igx-icon>
+              </igx-prefix>
+              <input type="number" [ngModel]="value2" placeholder="Es. 500" required="true" igxInput (ngModelChange)="value2 = stringToNumber($event)" #igxInput2="igxInput" />
+              <label igxLabel>Quantità Entrata (Pezzi)</label>
+              @if (!igxInput2.isValid && igxInput2.nativeElement.validity.valueMissing) {
+                <igx-hint>This field is required</igx-hint>
+              }
+            </igx-input-group>
+            <igx-input-group type="border" class="input-codice-articolo-dialog">
+              <igx-prefix>
+                <igx-icon class="icon-search-prefix">
+                  label
+                </igx-icon>
+              </igx-prefix>
+              <input type="text" [(ngModel)]="value3" placeholder="Es. LOT-2025-08B" required="true" igxInput #igxInput3="igxInput" />
+              <label igxLabel>Numero Lotto / Batch</label>
+              @if (!igxInput3.isValid && igxInput3.nativeElement.validity.valueMissing) {
+                <igx-hint>This field is required</igx-hint>
+              }
+            </igx-input-group>
+            <igx-input-group type="border" class="input-codice-articolo-dialog">
+              <igx-prefix>
+                <igx-icon class="icon-search-prefix">
+                  place
+                </igx-icon>
+              </igx-prefix>
+              <input type="text" [(ngModel)]="value4" placeholder="Es. Corsia C - Scaffale 04 - Ripiano 2" required="true" igxInput #igxInput4="igxInput" />
+              <label igxLabel>Posizione Scaffale / Corsia</label>
+              @if (!igxInput4.isValid && igxInput4.nativeElement.validity.valueMissing) {
+                <igx-hint>This field is required</igx-hint>
+              }
+            </igx-input-group>
+            <igx-input-group type="border" class="input-codice-articolo-dialog">
+              <igx-prefix>
+                <igx-icon class="icon-search-prefix">
+                  receipt_long
+                </igx-icon>
+              </igx-prefix>
+              <input type="text" [(ngModel)]="value5" placeholder="Es. DDT n. 1482 del fornitore" igxInput />
+              <label igxLabel>Riferimento Documento di Trasporto (DDT)</label>
+            </igx-input-group>
+          </div>
+        </ng-container>
+        <igx-dialog-actions>
+          <button igxButton="contained" type="button" (click)="dialogCaricoMerci.toggle()" class="btn-invia-riordino-fornitore">
+            <igx-icon class="icon">
+              check
+            </igx-icon>
+            <span>Conferma Carico</span>
+          </button>
+          <button igxButton="outlined" type="button" (click)="dialogCaricoMerci.toggle()" class="state-action-magazzino-pannello-riordino-fornitori-annulla-proposta">
+            Annulla
+          </button>
+        </igx-dialog-actions>
+      </igx-dialog>
+      <igx-snackbar actionText="OK" (clicked)="snackbarRiordinoEffettuato.toggle()" #snackbarRiordinoEffettuato class="snackbar-riordino-effettuato">
+        Proposta di riordino scorte trasmessa all'ufficio acquisti.
+      </igx-snackbar>
+    </div>
+  </div>
+</div>

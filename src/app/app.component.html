@@ -1,0 +1,35 @@
+<igx-navbar class="nav-bar-main">
+  <igx-navbar-action>
+    <button igxIconButton="flat" [igxToggleAction]="navDrawerMain" class="btn-toggle-drawer">
+      <igx-icon class="icon">
+        menu
+      </igx-icon>
+    </button>
+  </igx-navbar-action>
+  <igx-navbar-title class="navbar-content">
+    <h6 class="h6">
+      Infragistics WindowsForms App
+    </h6>
+  </igx-navbar-title>
+</igx-navbar>
+<div class="row-layout row-shell-body">
+  <igx-nav-drawer [isOpen]="true" [pin]="true" width="260px" #navDrawerMain class="nav-drawer-main">
+    <ng-template igxDrawer>
+      <div igxDrawerItem [active]="isActive(`/dashboard`)" [routerLink]="[`/dashboard`]">
+        <span>Dashboard</span>
+      </div>
+      <div igxDrawerItem [active]="isActive(`/clienti`)" [routerLink]="[`/clienti`]">
+        <span>Clienti</span>
+      </div>
+      <div igxDrawerItem [active]="isActive(`/ordini`)" [routerLink]="[`/ordini`]">
+        <span>Ordini</span>
+      </div>
+      <div igxDrawerItem [active]="isActive(`/magazzino`)" [routerLink]="[`/magazzino`]">
+        <span>Magazzino</span>
+      </div>
+    </ng-template>
+  </igx-nav-drawer>
+  <div class="view-container-main">
+    <router-outlet></router-outlet>
+  </div>
+</div>

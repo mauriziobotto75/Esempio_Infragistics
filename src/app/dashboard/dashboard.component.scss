@@ -1,0 +1,465 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 0;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.layout-dashboard-root {
+  background-color: var(--ig-surface-50);
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 0;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.row-layout {
+  display: flex;
+}
+.page-frame-row {
+  justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 0;
+  position: relative;
+  padding: 48px 32px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.dashboard-container {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  max-width: 1360px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.header-panoramica-gestionale {
+  background-color: var(--ig-surface-100);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 12px;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 20px;
+  position: relative;
+  padding: 24px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.header-top-bar {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.header-identity-block {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 6px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.header-title-row {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.header-actions-row {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.header-status-row {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.kpi-panoramica-gestionale {
+  background-color: var(--ig-surface-100);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 12px;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  padding: 24px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.kpi-header-block {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 4px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.kpi-cards-row {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.card-kpi-fatturato {
+  --background: var(--ig-surface-50);
+  --outline-color: var(--ig-gray-200);
+  height: max-content;
+  min-width: 320px;
+  max-width: 576px;
+  flex-grow: 1;
+  flex-basis: 260px;
+}
+.contenuto-kpi-fatturato {
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 12px;
+  position: relative;
+  padding: 16px;
+  min-width: 50px;
+  min-height: 50px;
+}
+.riga-top-kpi-1 {
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.trend-kpi-1 {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 4px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.meta-kpi-1 {
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 4px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.sales-header-row {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 12px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.sales-title-col {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 4px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.activity-chips-row {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: flex-start;
+  gap: 6px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.dialog-content-layout {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.header-app-avatar {
+  --ig-size: var(--ig-size-medium);
+  --igx-avatar-background: var(--ig-primary-500);
+}
+.icon {
+  color: var(--ig-primary-500-contrast);
+}
+.content {
+  color: var(--ig-gray-900);
+  height: max-content;
+  min-width: min-content;
+}
+.descrizione-pagina {
+  color: var(--ig-gray-700);
+  height: max-content;
+  min-width: min-content;
+}
+.icon_1 {
+  color: var(--ig-primary-600-contrast);
+}
+.icon_2 {
+  color: var(--ig-primary-700);
+}
+.chip-status-ultra-grid {
+  --ig-size: var(--ig-size-small);
+  width: max-content;
+  height: max-content;
+}
+.icon_3 {
+  --size: 18px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--ig-success-500);
+}
+.icon_4 {
+  --size: 18px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--ig-primary-500);
+}
+.icon_5 {
+  --size: 18px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--ig-info-500);
+}
+.dashboard-hero-image {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
+  height: 240px;
+  min-width: 100%;
+  min-height: 240px;
+  max-width: 100%;
+  max-height: 240px;
+  flex-shrink: 0;
+}
+.avatar-kpi-1 {
+  --ig-size: var(--ig-size-small);
+  --igx-avatar-background: var(--ig-primary-500);
+}
+.scostamento-kpi-1 {
+  color: var(--ig-success-500);
+  height: max-content;
+  min-width: min-content;
+}
+.nota-kpi-1 {
+  text-align: right;
+  color: var(--ig-gray-700);
+  height: max-content;
+  min-width: min-content;
+}
+.avatar-kpi-2 {
+  --ig-size: var(--ig-size-small);
+  --igx-avatar-background: var(--ig-info-500);
+}
+.icon_6 {
+  color: var(--ig-info-500-contrast);
+}
+.scostamento-kpi-2 {
+  color: var(--ig-info-500);
+  height: max-content;
+  min-width: min-content;
+}
+.scostamento-kpi-3 {
+  color: var(--ig-primary-500);
+  height: max-content;
+  min-width: min-content;
+}
+.avatar-kpi-4 {
+  --ig-size: var(--ig-size-small);
+  --igx-avatar-background: var(--ig-warn-500);
+}
+.icon_7 {
+  color: var(--ig-warn-500-contrast);
+}
+.icona-trend-kpi-4 {
+  --size: 18px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--ig-warn-500);
+}
+.scostamento-kpi-4 {
+  color: var(--ig-warn-500);
+  height: max-content;
+  min-width: min-content;
+}
+.icon_8 {
+  --size: 18px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+.icon_9 {
+  --size: 18px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--ig-error-500);
+}
+.descrizione-dialog {
+  color: var(--ig-gray-800);
+  height: max-content;
+  min-width: min-content;
+}
+.header-app-avatar_1::part(base) {
+  --igx-avatar-color: var(--ig-primary-500-contrast);
+}
+.avatar-kpi-1_1::part(base) {
+  --igx-avatar-color: var(--ig-primary-500-contrast);
+}
+.avatar-kpi-1_2::part(base) {
+  --igx-avatar-color: var(--ig-primary-500-contrast);
+}
+.avatar-kpi-2_1::part(base) {
+  --igx-avatar-color: var(--ig-info-500-contrast);
+}
+.avatar-kpi-4_1::part(base) {
+  --igx-avatar-color: var(--ig-warn-500-contrast);
+}
+.grafico-andamento-kpi {
+  width: 100%;
+  min-width: 100%;
+  min-height: 380px;
+  max-width: 100%;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.pulsante-esporta-excel {
+  --foreground: var(--ig-primary-600-contrast);
+  --background: var(--ig-primary-600);
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+  flex-shrink: 0;
+}
+.pulsante-configura-soglie {
+  --foreground: var(--ig-primary-700);
+  --border-color: var(--ig-gray-300);
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+  flex-shrink: 0;
+}
+.pulsante-ricarica-dati {
+  --foreground: var(--ig-primary-700);
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+  flex-shrink: 0;
+}
+.filtro-periodo-vendite {
+  --ig-size: var(--ig-size-small);
+  height: max-content;
+  min-width: min-content;
+  flex-shrink: 0;
+}
+.input-soglia-giacenza {
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+  min-width: min-content;
+}
+.select-frequenza-alert {
+  height: max-content;
+  min-width: min-content;
+}
+.switch-blocco-ddt {
+  width: max-content;
+  height: max-content;
+}
+.pulsante-dialog-annulla {
+  --foreground: var(--ig-gray-700);
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+}
+.pulsante-dialog-conferma {
+  --foreground: var(--ig-primary-600-contrast);
+  --background: var(--ig-primary-600);
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+}
+.badge-kpi-1 {
+  width: max-content;
+  height: max-content;
+}
+.dialog-configura-soglie {
+  position: absolute;
+}
+.snackbar-notifica-esportazione {
+  height: max-content;
+  min-width: 344px;
+}
+.griglia-attivita-recenti {
+  width: 100%;
+  min-width: 100%;
+  min-height: 420px;
+  max-width: 100%;
+  flex-grow: 1;
+  flex-basis: 0;
+}

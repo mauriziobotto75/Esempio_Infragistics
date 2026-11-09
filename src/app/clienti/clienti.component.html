@@ -1,0 +1,357 @@
+<div class="column-layout layout-clienti-root">
+  <div class="row-layout row-layout_1">
+    <div class="column-layout column-layout_1">
+      <div class="column-layout barra-strumenti-anagrafica">
+        <div class="row-layout row-layout_2">
+          <div class="column-layout column-layout_2">
+            <h3 class="content">
+              Anagrafica Clienti e Fido Commerciale
+            </h3>
+            <p class="text">
+              Gestione centralizzata controparti aziendali, verifica Partita IVA, condizioni di pagamento e affidamento in stile Infragistics WinForms.
+            </p>
+          </div>
+          <div class="row-layout row-layout_3">
+            <button igxButton="contained" type="button" (click)="inserimentoNuovoCliente.toggle()" class="nuovo-cliente">
+              <igx-icon class="icon">
+                person_add
+              </igx-icon>
+              <span>Nuovo Cliente</span>
+            </button>
+            <button igxButton="outlined" type="button" (click)="snackbar.toggle()" class="esporta-anagrafica">
+              <igx-icon class="icon_1">
+                file_download
+              </igx-icon>
+              <span>Esporta Anagrafica</span>
+            </button>
+            <button igxButton="outlined" type="button" (click)="snackbar.toggle()" class="esporta-anagrafica">
+              <igx-icon class="icon_1">
+                print
+              </igx-icon>
+              <span>Stampa Scheda</span>
+            </button>
+            <button igxButton="flat" type="button" (click)="snackbar.toggle()" class="raggruppa-colonne">
+              <igx-icon class="icon_1">
+                view_column
+              </igx-icon>
+              <span>Raggruppa Colonne</span>
+            </button>
+          </div>
+        </div>
+        <div class="row-layout row-layout_4">
+          <igx-chip class="tutti-i-clienti-1-4-2">
+            <igx-prefix>
+              <igx-icon class="icon_2">
+                contacts
+              </igx-icon>
+            </igx-prefix>
+            Tutti i Clienti (142)
+          </igx-chip>
+          <igx-chip class="tutti-i-clienti-1-4-2">
+            <igx-prefix>
+              <igx-icon class="icon_3">
+                check_circle
+              </igx-icon>
+            </igx-prefix>
+            Affidati Attivi (118)
+          </igx-chip>
+          <igx-chip class="tutti-i-clienti-1-4-2">
+            <igx-prefix>
+              <igx-icon class="icon_4">
+                pending_actions
+              </igx-icon>
+            </igx-prefix>
+            Revisione Fido (14)
+          </igx-chip>
+          <igx-chip class="tutti-i-clienti-1-4-2">
+            <igx-prefix>
+              <igx-icon class="icon_5">
+                block
+              </igx-icon>
+            </igx-prefix>
+            Blocco Credito (10)
+          </igx-chip>
+        </div>
+      </div>
+      <div class="column-layout registro-clienti-ultra-grid">
+        <div class="row-layout row-layout_5">
+          <div class="column-layout column-layout_3">
+            <h5 class="content">
+              Registro Clienti (Infragistics UltraGrid)
+            </h5>
+            <p class="ig-typography__body-2 text">
+              Visualizzazione tabellare con supporto ordinamento multi-colonna, filtri contestuali e raggruppamento per Condizioni di Pagamento.
+            </p>
+          </div>
+        </div>
+        <div class="row-layout row-layout_5">
+          <igx-input-group type="search" class="input">
+            <igx-prefix>
+              <igx-icon class="icon_6">
+                search
+              </igx-icon>
+            </igx-prefix>
+            <input type="search" [(ngModel)]="value" placeholder="Cerca Ragione Sociale, Partita IVA..." igxInput />
+            <label igxLabel>Search</label>
+          </igx-input-group>
+          <div class="row-layout row-layout_3">
+            <igx-select type="border" placeholder="Tutti gli stati" class="stato-cliente">
+              <igx-select-item value="1">
+                Tutti gli stati
+              </igx-select-item>
+              <igx-select-item value="2">
+                Solo Attivi
+              </igx-select-item>
+              <igx-select-item value="3">
+                Sospesi / Bloccati
+              </igx-select-item>
+              <label igxLabel>Stato Cliente</label>
+            </igx-select>
+            <igx-select type="border" placeholder="Tutti gli importi" class="stato-cliente">
+              <igx-select-item value="1">
+                Tutti gli importi
+              </igx-select-item>
+              <igx-select-item value="2">
+                Fino a € 10.000
+              </igx-select-item>
+              <igx-select-item value="3">
+                Da € 10.000 a € 50.000
+              </igx-select-item>
+              <igx-select-item value="4">
+                Oltre € 50.000
+              </igx-select-item>
+              <label igxLabel>Scaglione Fido</label>
+            </igx-select>
+            <button igxButton="flat" type="button" (click)="snackbar.toggle()" class="raggruppa-colonne">
+              <igx-icon class="icon_1">
+                refresh
+              </igx-icon>
+              <span>Aggiorna Dati</span>
+            </button>
+          </div>
+        </div>
+        <igx-grid [data]="customerCustomer" primaryKey="id" [allowFiltering]="true" filterMode="excelStyleFilter" width="100%" class="ultra-grid-anagrafica-clienti">
+          <igx-column field="id" dataType="number" header="id" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="companyName" dataType="string" header="companyName" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="vatNumber" dataType="string" header="vatNumber" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="creditLimit" dataType="number" header="creditLimit" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="paymentTerms" dataType="string" header="paymentTerms" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="isActive" dataType="boolean" header="isActive" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+          <igx-column field="registrationDate" dataType="date" header="registrationDate" [filterable]="true" [groupable]="true" [sortable]="true" [resizable]="true" [selectable]="false"></igx-column>
+        </igx-grid>
+        <div class="row-layout row-layout_6">
+          <p class="ig-typography__caption text">
+            Record totali caricati: 142 | Filtrati: 142
+          </p>
+          <p class="ig-typography__caption text">
+            Fido Complessivo Portafoglio Clienti: € 3.420.000,00
+          </p>
+          <igx-badge type="info" value="Infragistics WinForms UltraGrid v24.2" class="infragistics-win-forms-ultra-grid-v-2-42"></igx-badge>
+        </div>
+      </div>
+      <div class="column-layout registro-clienti-ultra-grid">
+        <div class="column-layout column-layout_4">
+          <h5 class="content">
+            Verifica Fido e Condizioni Commerciali
+          </h5>
+          <p class="ig-typography__body-2 text">
+            Configurazione parametri di fido e aggiornamento dei termini di pagamento per il calcolo dell'affidamento commerciale.
+          </p>
+        </div>
+        <div class="row-layout row-layout_7">
+          <div class="column-layout column-layout_5">
+            <img src="/assets/corporate-accounting-departmen-ecf732065df8.png" alt="" class="image" />
+            <igx-input-group type="border" class="user-input">
+              <igx-prefix>
+                <igx-icon class="icon_6">
+                  euro
+                </igx-icon>
+              </igx-prefix>
+              <input type="number" [ngModel]="grantedCreditLimit" placeholder="Inserisci importo fido (es. 25000)" igxInput (ngModelChange)="grantedCreditLimit = stringToNumber($event)" />
+              <label igxLabel>Fido Accordato (€)</label>
+            </igx-input-group>
+            <igx-select type="border" placeholder="Seleziona condizioni di pagamento" [(ngModel)]="paymentTermsSelection" class="user-input">
+              <igx-select-item value="Bonifico Vista Fattura">
+                Bonifico Vista Fattura
+              </igx-select-item>
+              <igx-select-item value="Rimessa Diretta 30 gg">
+                Rimessa Diretta 30 gg
+              </igx-select-item>
+              <igx-select-item value="Ri.Ba. 30/60 gg d.f. f.m.">
+                Ri.Ba. 30/60 gg d.f. f.m.
+              </igx-select-item>
+              <igx-select-item value="Ri.Ba. 60/90 gg d.f. f.m.">
+                Ri.Ba. 60/90 gg d.f. f.m.
+              </igx-select-item>
+              <igx-select-item value="Contanti alla Consegna">
+                Contanti alla Consegna
+              </igx-select-item>
+              <label igxLabel>Condizioni Pagamento</label>
+            </igx-select>
+            <div class="row-layout row-layout_8">
+              <button igxButton="outlined" type="button" class="reimposta-parametri">
+                <igx-icon class="icon_7">
+                  refresh
+                </igx-icon>
+                <span>Reimposta Parametri</span>
+              </button>
+            </div>
+          </div>
+          <div class="column-layout column-layout_5">
+            <igx-card class="scheda-fido-e-condizioni">
+              <igx-card-header>
+                <div igxCardThumbnail>
+                  <igx-avatar shape="rounded" class="avatar">
+                    <igx-icon class="icon_8">
+                      account_balance_wallet
+                    </igx-icon>
+                  </igx-avatar>
+                </div>
+                <h3 igxCardHeaderTitle>
+                  Scheda Fido e Condizioni
+                </h3>
+                <h5 igxCardHeaderSubtitle>
+                  Riepilogo affidamento deliberato e profilo contabile
+                </h5>
+              </igx-card-header>
+              <igx-card-content>
+                <div class="column-layout column-layout_6">
+                  <div class="row-layout row-layout_9">
+                    <p class="ig-typography__body-2 text">
+                      Fido Accordato:
+                    </p>
+                    <div class="row-layout row-layout_10">
+                      <p class="text_1">
+                        €
+                      </p>
+                      <p class="text_1">
+                        {{ grantedCreditLimit }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row-layout row-layout_9">
+                    <p class="ig-typography__body-2 text">
+                      Condizioni Pagamento:
+                    </p>
+                    <p class="content">
+                      {{ paymentTermsSelection }}
+                    </p>
+                  </div>
+                  <div class="row-layout row-layout_9">
+                    <p class="ig-typography__body-2 text">
+                      Classe Rischio Creditizio:
+                    </p>
+                    <igx-badge type="success" value="Classe A - Basso Rischio" class="infragistics-win-forms-ultra-grid-v-2-42"></igx-badge>
+                  </div>
+                  <div class="row-layout row-layout_9">
+                    <p class="ig-typography__body-2 text">
+                      Capienza Fido Disponibile:
+                    </p>
+                    <p class="ig-typography__body-2 capienza-residua">
+                      85% capienza residua
+                    </p>
+                  </div>
+                  <igx-linear-bar type="success" [value]="85" [animationDuration]="500" textAlign="center" [textTop]="true" class="true"></igx-linear-bar>
+                </div>
+              </igx-card-content>
+              <igx-card-actions>
+                <ng-container igxStart>
+                  <button igxButton="contained" type="button" (click)="snackbar.toggle()" class="conferma-fido-cliente">
+                    <igx-icon class="icon">
+                      verified
+                    </igx-icon>
+                    <span>Conferma Fido Cliente</span>
+                  </button>
+                  <button igxButton="outlined" type="button" (click)="snackbar.toggle()" class="storico-affidamento">
+                    <igx-icon class="icon_1">
+                      history
+                    </igx-icon>
+                    <span>Storico Affidamento</span>
+                  </button>
+                </ng-container>
+                <ng-container igxEnd></ng-container>
+              </igx-card-actions>
+            </igx-card>
+          </div>
+        </div>
+      </div>
+      <igx-dialog [closeOnOutsideSelect]="true" #inserimentoNuovoCliente class="inserimento-nuovo-cliente">
+        <igx-dialog-title>
+          Inserimento Nuovo Cliente
+        </igx-dialog-title>
+        <ng-container>
+          <div class="column-layout column-layout_7">
+            <igx-input-group type="border" class="user-input">
+              <igx-prefix>
+                <igx-icon class="icon_6">
+                  business
+                </igx-icon>
+              </igx-prefix>
+              <input type="text" [(ngModel)]="value1" placeholder="Es. Rossi Impianti Industriali S.r.l." required="true" igxInput #igxInput="igxInput" />
+              <label igxLabel>Ragione Sociale</label>
+              @if (!igxInput.isValid && igxInput.nativeElement.validity.valueMissing) {
+                <igx-hint>This field is required</igx-hint>
+              }
+            </igx-input-group>
+            <igx-input-group type="border" class="user-input">
+              <igx-prefix>
+                <igx-icon class="icon_6">
+                  badge
+                </igx-icon>
+              </igx-prefix>
+              <input type="text" [(ngModel)]="value2" placeholder="Es. IT12345678901" required="true" igxInput #igxInput1="igxInput" />
+              <label igxLabel>Partita IVA</label>
+              @if (!igxInput1.isValid && igxInput1.nativeElement.validity.valueMissing) {
+                <igx-hint>This field is required</igx-hint>
+              }
+            </igx-input-group>
+            <igx-input-group type="border" class="user-input">
+              <igx-prefix>
+                <igx-icon class="icon_6">
+                  euro
+                </igx-icon>
+              </igx-prefix>
+              <input type="number" [ngModel]="value3" placeholder="Es. 20000" igxInput (ngModelChange)="value3 = stringToNumber($event)" />
+              <label igxLabel>Fido Iniziale Richiesto (€)</label>
+            </igx-input-group>
+            <igx-select type="border" placeholder="Seleziona condizioni di pagamento" class="user-input">
+              <igx-select-item value="1">
+                Bonifico Vista Fattura
+              </igx-select-item>
+              <igx-select-item value="2">
+                Rimessa Diretta 30 gg
+              </igx-select-item>
+              <igx-select-item value="3">
+                Ri.Ba. 30/60 gg d.f. f.m.
+              </igx-select-item>
+              <igx-select-item value="4">
+                Ri.Ba. 60/90 gg d.f. f.m.
+              </igx-select-item>
+              <igx-select-item value="5">
+                Contanti alla Consegna
+              </igx-select-item>
+              <label igxLabel>Condizioni di Pagamento</label>
+            </igx-select>
+            <igx-checkbox labelPosition="after" [(ngModel)]="checked" class="checkbox">
+              Abilita fido commerciale immediato per emissione ordini
+            </igx-checkbox>
+          </div>
+        </ng-container>
+        <igx-dialog-actions>
+          <button igxButton="outlined" type="button" (click)="inserimentoNuovoCliente.toggle()" class="annulla">
+            Annulla
+          </button>
+          <button igxButton="contained" type="button" (click)="inserimentoNuovoCliente.toggle()" class="conferma-fido-cliente">
+            <igx-icon class="icon">
+              check
+            </igx-icon>
+            <span>Salva Cliente</span>
+          </button>
+        </igx-dialog-actions>
+      </igx-dialog>
+      <igx-snackbar actionText="OK" (clicked)="snackbar.toggle()" #snackbar class="snackbar">
+        Anagrafica esportata in formato Excel.
+      </igx-snackbar>
+    </div>
+  </div>
+</div>
